@@ -1,0 +1,56 @@
+@startuml
+interface Opcion {
++play(opcion:Piedra):boolean
++play(opcion:Papel):boolean
++play(opcion:Tijera:boolean
+}
+
+class Piedra implements Opcion{
++play(opcion:Piedra):boolean
++play(opcion:Papel):boolean
++play(opcion:Tijera:boolean
+}
+
+class Papel implements Opcion{
++play(opcion:Piedra):boolean
++play(opcion:Papel):boolean
++play(opcion:Tijera:boolean
+}
+
+class Tijera implements Opcion{
++play(opcion:Piedra):boolean
++play(opcion:Papel):boolean
++play(opcion:Tijera:boolean
+}
+
+@enduml
+
+
+@startuml
+interface Opcion {
++play(opcion:Opcion):boolean
++jugarContraPiedra(opcion:Piedra):boolean
++jugarContraPapel(opcion:Papel):boolean
++jugarContraTijera(opcion:Tijera):boolean
+}
+
+class Piedra implements Opcion {
++play(opcion:Opcion):boolean
++jugarContraPiedra(opcion:Piedra):boolean
++jugarContraPapel(opcion:Papel):boolean
++jugarContraTijera(opcion:Tijera):boolean
+}
+class Papel implements Opcion {
++play(opcion:Opcion):boolean
++jugarContraPiedra(opcion:Piedra):boolean
++jugarContraPapel(opcion:Papel):boolean
++jugarContraTijera(opcion:Tijera):boolean
+}
+class Tijera implements Opcion {
++play(opcion:Opcion):boolean
++jugarContraPiedra(opcion:Piedra):boolean
++jugarContraPapel(opcion:Papel):boolean
++jugarContraTijera(opcion:Tijera):boolean
+}
+' En el play de cada clase, se le manda el mensaje a la opcion con el this como parametro
+@enduml
