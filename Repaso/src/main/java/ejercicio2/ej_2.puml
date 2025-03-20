@@ -29,28 +29,29 @@ class Tijera implements Opcion{
 @startuml
 interface Opcion {
 +play(opcion:Opcion):boolean
-+jugarContraPiedra(opcion:Piedra):boolean
-+jugarContraPapel(opcion:Papel):boolean
-+jugarContraTijera(opcion:Tijera):boolean
++jugarContraPiedra():boolean
++jugarContraPapel():boolean
++jugarContraTijera():boolean
 }
 
 class Piedra implements Opcion {
 +play(opcion:Opcion):boolean
-+jugarContraPiedra(opcion:Piedra):boolean
-+jugarContraPapel(opcion:Papel):boolean
-+jugarContraTijera(opcion:Tijera):boolean
++jugarContraPiedra():boolean
++jugarContraPapel():boolean
++jugarContraTijera():boolean
 }
 class Papel implements Opcion {
 +play(opcion:Opcion):boolean
-+jugarContraPiedra(opcion:Piedra):boolean
-+jugarContraPapel(opcion:Papel):boolean
-+jugarContraTijera(opcion:Tijera):boolean
++jugarContraPiedra():boolean
++jugarContraPapel():boolean
++jugarContraTijera():boolean
 }
 class Tijera implements Opcion {
 +play(opcion:Opcion):boolean
-+jugarContraPiedra(opcion:Piedra):boolean
-+jugarContraPapel(opcion:Papel):boolean
-+jugarContraTijera(opcion:Tijera):boolean
++jugarContraPiedra():boolean
++jugarContraPapel():boolean
++jugarContraTijera():boolean
 }
-' En el play de cada clase, se le manda el mensaje a la opcion con el this como parametro
 @enduml
+' En el play de cada clase, se le manda el mensaje a la opcion con el this como parametro
+

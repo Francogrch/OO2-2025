@@ -1,0 +1,36 @@
+@startuml
+
+class Twitter {
+-yaRegistrado(name:String):boolean
++agregarUsuario(screenName:String):boolean
++eliminarUsuario(user:Usuario):boolean
+}
+Twitter  --> Usuario : -usuarios 0..*
+
+class Usuario {
+- screenName:String
+- LIMITE: Integer
+-superaLimite(text:String):boolean
++agregarTweet(text:String):boolean
++eliminarTweet(tweet:Tweet):boolean
+}
+Usuario --> Tweet : -tweets 0..*
+
+
+
+class Tweet{
+- text:String
++<<create>> Tweet(text:String)
++eliminar():boolean
++retweet():boolean
++sizeReTweet():Integer
+}
+
+ReTweet --> Tweet : -origen 0..1
+Tweet --> ReTweet : -retweets 0..* 
+
+class ReTweet{
++<<create>> ReTweet(Tweet origen)
+}
+
+@enduml
