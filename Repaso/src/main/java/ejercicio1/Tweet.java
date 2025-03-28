@@ -1,25 +1,16 @@
 package ejercicio1;
-import java.util.List;
-import java.util.ArrayList;
 
-public class Tweet {
+public class Tweet implements Post{
 	private String text;
-	private List<ReTweet> reTweets;
-	
 	
 	public Tweet(String text) {
-		reTweets = new ArrayList<ReTweet>();
 		this.text = text;
 	}
 	
-	public void eliminar() {
-		reTweets.clear();
+	public boolean reTweet(Usuario user) {
+		return user.agregarPost(new ReTweet(this));
 	}
-	
-	public boolean reTweet() {
-		return reTweets.add(new ReTweet(this));
-	}
-	public int sizeReTweet() {
-		return reTweets.size();
+	public Post getOrigen() {
+		return null; 
 	}
 }

@@ -1,0 +1,87 @@
+1. **Duplicated Code** (Código duplicado)
+   - **Problema:** Fragmentos de código idénticos o muy similares en múltiples lugares del programa.
+   - **Solución:** Aplicar *Extract Method* para encapsular el código duplicado en un método reutilizable o *Pull Up Method* si está en diferentes clases de una jerarquía.
+
+2. **Long Method** (Método largo)
+   - **Problema:** Métodos demasiado extensos y difíciles de comprender.
+   - **Solución:** Aplicar *Extract Method* para dividir el método en partes más pequeñas y con nombres significativos.
+
+3. **Large Class** (Clase grande)
+   - **Problema:** Una clase que maneja demasiadas responsabilidades.
+   - **Solución:** Usar *Extract Class* para dividir la funcionalidad en varias clases más específicas.
+
+4. **Long Parameter List** (Lista larga de parámetros)
+   - **Problema:** Métodos con demasiados parámetros, dificultando su comprensión.
+   - **Solución:** Aplicar *Introduce Parameter Object* para encapsular parámetros relacionados en un objeto.
+
+5. **Divergent Change** (Cambio divergente)
+   - **Problema:** Una clase que debe modificarse frecuentemente por diferentes razones.
+   - **Solución:** Aplicar *Extract Class* para separar las responsabilidades en diferentes clases.
+
+6. **Shotgun Surgery** (Cirugía de escopeta)
+   - **Problema:** Un cambio requiere modificaciones en múltiples clases o métodos dispersos.
+   - **Solución:** Aplicar *Move Method* o *Move Field* para agrupar la lógica relacionada en una sola clase.
+
+7. **Feature Envy** (Envidia de características)
+   - **Problema:** Un método accede demasiado a los datos de otra clase en lugar de usar su propia lógica.
+   - **Solución:** Aplicar *Move Method* para trasladar el método a la clase donde se encuentran los datos.
+
+8. **Data Clumps** (Grupos de datos)
+   - **Problema:** Datos que siempre aparecen juntos en múltiples lugares del código.
+   - **Solución:** Aplicar *Introduce Parameter Object* o *Extract Class* para agrupar los datos en una estructura apropiada.
+
+9. **Primitive Obsession** (Obsesión por los primitivos)
+   - **Problema:** Uso excesivo de tipos primitivos en lugar de objetos.
+   - **Solución:** Aplicar *Replace Data Value with Object* para encapsular datos primitivos en clases más ricas.
+
+10. **Switch Statements** (Sentencias switch)
+   - **Problema:** Uso excesivo de estructuras condicionales en lugar de polimorfismo.
+   - **Solución:** Aplicar *Replace Conditional with Polymorphism*.
+
+11. **Parallel Inheritance Hierarchies** (Jerarquías de herencia paralelas)
+   - **Problema:** Cambios en una jerarquía de clases requieren cambios en otra.
+   - **Solución:** Aplicar *Move Method* y *Move Field* para consolidar las relaciones en una sola jerarquía.
+
+12. **Lazy Class** (Clase perezosa)
+   - **Problema:** Una clase que no justifica su existencia porque tiene muy poca funcionalidad.
+   - **Solución:** Aplicar *Inline Class* para fusionarla con otra clase relevante.
+
+13. **Speculative Generality** (Generalidad especulativa)
+   - **Problema:** Código genérico no utilizado que fue escrito "por si acaso".
+   - **Solución:** Aplicar *Collapse Hierarchy* o eliminar código innecesario.
+
+14. **Temporary Field** (Campo temporal)
+   - **Problema:** Variables de instancia que solo se usan en algunos casos específicos.
+   - **Solución:** Aplicar *Extract Class* para mover los campos a una nueva clase específica.
+
+15. **Message Chains** (Cadenas de mensajes)
+   - **Problema:** Llamadas en cascada de métodos que acoplan demasiado el código.
+   - **Solución:** Aplicar *Hide Delegate* para ocultar las llamadas indirectas.
+
+16. **Middle Man** (Intermediario innecesario)
+   - **Problema:** Clases que delegan demasiado su trabajo en otras clases.
+   - **Solución:** Aplicar *Remove Middle Man* para eliminar la delegación innecesaria.
+
+17. **Inappropriate Intimacy** (Intimidad inapropiada)
+   - **Problema:** Clases que dependen demasiado de los detalles internos de otra.
+   - **Solución:** Aplicar *Move Method* y *Move Field* para reducir la dependencia.
+
+18. **Alternative Classes with Different Interfaces** (Clases alternativas con interfaces diferentes)
+   - **Problema:** Clases similares que no comparten una interfaz común.
+   - **Solución:** Aplicar *Extract Interface* o *Rename Method* para unificar la interfaz.
+
+19. **Incomplete Library Class** (Clase de biblioteca incompleta)
+   - **Problema:** Una clase de biblioteca no proporciona toda la funcionalidad necesaria.
+   - **Solución:** Aplicar *Introduce Local Extension* para extender la funcionalidad sin modificar la clase original.
+
+20. **Data Class** (Clase de datos)
+   - **Problema:** Clases que solo contienen datos y carecen de comportamiento.
+   - **Solución:** Aplicar *Encapsulate Field* y mover lógica a la clase correspondiente.
+
+21. **Refused Bequest** (Legado rechazado)
+   - **Problema:** Una subclase que no usa el comportamiento heredado de su superclase.
+   - **Solución:** Aplicar *Replace Inheritance with Delegation* si la herencia no es apropiada.
+
+22. **Comments** (Comentarios excesivos)
+   - **Problema:** Uso de comentarios en lugar de un código claro y autoexplicativo.
+   - **Solución:** Aplicar *Extract Method* o *Rename Method* para mejorar la claridad sin necesidad de comentarios.

@@ -1,36 +1,33 @@
 @startuml
-
 class Twitter {
--yaRegistrado(name:String):boolean
-+agregarUsuario(screenName:String):boolean
-+eliminarUsuario(user:Usuario):boolean
+-yaRegistrado():boolean
++agregarUsuario():boolean
++eliminarUsuario():boolean
 }
-Twitter  --> Usuario : -usuarios 0..*
+Twitter --> Usuario : -usuarios 0..*
 
 class Usuario {
-- screenName:String
-- LIMITE: Integer
+-screenName:String
+-LIMITE:Integer
 -superaLimite(text:String):boolean
 +agregarTweet(text:String):boolean
-+eliminarTweet(tweet:Tweet):boolean
++agregarPost(post:Post):boolean
++tengoPost(post:Post):boolean
++limiparRetweets(user:Usuario)
 }
-Usuario --> Tweet : -tweets 0..*
+Usuario --> Post : -posts 0..*
 
-
-
-class Tweet{
-- text:String
-+<<create>> Tweet(text:String)
-+eliminar():boolean
-+retweet():boolean
-+sizeReTweet():Integer
+interface Post{
++getOrigen():Post
 }
 
-ReTweet --> Tweet : -origen 0..1
-Tweet --> ReTweet : -retweets 0..* 
-
-class ReTweet{
-+<<create>> ReTweet(Tweet origen)
+class Tweet implements Post{
+-text:String
++getOrigen():Post
++reTweet(user:Usuario):boolean
 }
-
+class Retweet implements Post{
++getOrigen():Post
+}
+Retweet --> Post : -origen 0..*
 @enduml
