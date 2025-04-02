@@ -1,0 +1,36 @@
+@startuml
+class Cliente {
+-fechaAlta:LocalDate
++getFechaAlta():LocalDate
++aniosDesdeAlta():Integer 
++mayorA5():boolean
+}
+
+class Pedido{
++getCostoTotal():Real
+-costoProductos():Real
+-extraFormaPago():Real
+}
+Pedido -> Cliente: -cliente 
+Pedido -> Producto: -productos 0..*
+Pedido -> FormaDePago: -formaDePago
+
+class Producto {
+-precio:Real
++getPrecio():Real
+}
+abstract class FormaDePago{
++<<abstract>> extra(monto:Real):Real
+}
+class Efectivo extends FormaDePago{
++extra(monto:Real):Real
+}
+
+class Cuotas6 extends FormaDePago{
++extra(monto:Real):Real
+}
+
+class Cuotas12 extends FormaDePago{
++extra(monto:Real):Real
+}
+@enduml
