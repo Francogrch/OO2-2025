@@ -1,0 +1,31 @@
+@startuml
+class Biblioteca << Client >>{
++agregarSocio(socio:Socio)
++exportarSocios():String
++getExporter():VorheesExporter
++setExporter(exporter:VoorheesExporter)
+}
+Biblioteca --> Socio : -socios 0..*
+Biblioteca --> VoorheesExporter : -exporter 
+
+class Socio {
+-nombre:String
+-legajo:String
+-email:String
+}
+
+class VoorheesExporter << Target >>{
+-exportar(socio:Socio): String
++exportar(socios:List<Socio>): String
+}
+class AdapterJsonSimple << adapter >> extends VoorheesExporter {
+-exportar(socio:Socio): JSONObject
++exportar(socios:List<Socio>): String
+}
+
+AdapterJsonSimple --> JSONObject: -adaptee
+
+class JSONObject << adaptee >>{
++put(key:Object,value:Object)
+}
+@enduml

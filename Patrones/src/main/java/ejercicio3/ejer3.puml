@@ -1,0 +1,26 @@
+@startuml
+class MediaPlayer << Client >>{
++play()
+}
+MediaPlayer --> Media : -media 0..*
+
+class Media << Target >>{
++play()
+}
+
+class Audio extends Media{
++play()
+}
+class VideoFile extends Media{
++play()
+}
+
+class  AdapterVideoStream << Adapter >> extends Media{
++play()
+}
+AdapterVideoStream --> VideoStream : -adaptee
+class VideoStream << Adaptee >>{
++reproduce()
+
+}
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+class ToDoItem << Context >>{
+-name:String
+-comentarios:List<String>
+-duracion:Duration???
++start()
++tooglePause()
++finish()
++workedTime():Duration
++addComment(comment:String)
+}
+ToDoItem --> Estado : -state
+abstract class Estado << State >>{
++start()
++tooglePause()
++finish()
++workedTime()
++addComment()
+}
+
+class EstadoPending << ConcreteState >> extends Estado{
++start()
++tooglePause()
++finish()
++workedTime()
++addComment()
+}
+
+class EstadoInProgress << ConcreteState >> extends Estado{
++start()
++tooglePause()
++finish()
++workedTime()
++addComment()
+}
+
+class EstadoPaused << ConcreteState >> extends Estado {
++start()
++tooglePause()
++finish()
++workedTime()
++addComment()
+}
+
+class EstadoFinished << ConcreteState >> extends Estado{
++start()
++tooglePause()
++finish()
++workedTime()
++addComment()
+}
+@enduml

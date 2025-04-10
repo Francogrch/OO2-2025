@@ -1,0 +1,32 @@
+@startuml
+abstract class Empleado << abstractClass >>{
+
++pagar(): Real
+#<<abstract>> getBasico(): Real
+#<<abstract>> getAdicional(): Real
++getDescuento(): Real
+}
+
+class EmpleadoTemporario << concreteClass >> extends Empleado{
+-horasTrabajadas:Integer
+-casado:boolean
+-cantHijos:Integer
++getBasico(): Real
++getAdicional(): Real
+}
+
+class EmpleadoPasante << concreteClass >> extends Empleado{
+-cantExamen:Integer
++getBasico(): Real
++getAdicional(): Real
+}
+
+class EmpleadoPlanta  << concreteClass >> extends Empleado{
+-casado:boolean
+-cantHijos:Integer
+-aniosAntigue:Integer
++getBasico(): Real
++getAdicional(): Real
+}
+
+@enduml
