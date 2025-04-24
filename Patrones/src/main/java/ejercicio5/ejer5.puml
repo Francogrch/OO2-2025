@@ -1,0 +1,31 @@
+@startuml
+class Pelicula{
+-nombre:String
+-putaje:Real
+-anio:Integer
+}
+Pelicula --> Pelicula : -similares 0..*
+
+class Decodificador <<context>> {
++setStrategy(strategy:Strategy)
++recomendar():List<Peliculas>
+}
+Decodificador --> Pelicula : -peliculas 0..*
+Decodificador --> Pelicula : -reproducidas 0..*
+Decodificador --> Strategy : -strategy
+interface Strategy <<strategy>> {
++recomendar(context:Decodificador): List<Pelicula>
+}
+class StrategyNovedad <<concreteStrategy>> implements Strategy{
++recomendar(context:Decodificador): List<Pelicula>
+}
+
+class StrategySimilar <<concreteStrategy>> implements Strategy{
++recomendar(context:Decodificador): List<Pelicula>
+}
+
+class StrategyPuntaje <<concreteStrategy>> implements Strategy{
++recomendar(context:Decodificador): List<Pelicula>
+}
+
+@enduml

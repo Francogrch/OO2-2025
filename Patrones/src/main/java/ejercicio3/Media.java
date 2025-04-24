@@ -1,7 +1,6 @@
 package ejercicio3;
 
-public class Media {
+public interface Media {
 
-	public void play() {
-	}
+	public void play();
 }

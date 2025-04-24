@@ -1,6 +1,7 @@
 package ejercicio3;
 
-public class AdapterVideoStream extends Media{
+public class AdapterVideoStream implements Media{
+
 	private VideoStream adaptee;
 	
 	@Override

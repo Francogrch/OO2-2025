@@ -2,51 +2,53 @@
 class ToDoItem << Context >>{
 -name:String
 -comentarios:List<String>
--duracion:Duration???
+-startDate: LocalDate
+-finishDate: LocalDate
 +start()
 +tooglePause()
 +finish()
 +workedTime():Duration
 +addComment(comment:String)
++setState(estado:State)
 }
-ToDoItem --> Estado : -state
-abstract class Estado << State >>{
-+start()
+ToDoItem --> State : -state
+interface State << State >>{
++start(item:ToDoItem)
 +tooglePause()
-+finish()
-+workedTime()
-+addComment()
-}
-
-class EstadoPending << ConcreteState >> extends Estado{
-+start()
-+tooglePause()
-+finish()
-+workedTime()
-+addComment()
++finish(item:ToDoItem)
++workedTime(item:ToDoItem):Duration
++addComment(item:ToDoItem,comment:String)
 }
 
-class EstadoInProgress << ConcreteState >> extends Estado{
-+start()
+class StatePending << ConcreteState >> implements State{
++start(item:ToDoItem)
 +tooglePause()
-+finish()
-+workedTime()
-+addComment()
++finish(item:ToDoItem)
++workedTime(item:ToDoItem):Duration
++addComment(item:ToDoItem,comment:String)
 }
 
-class EstadoPaused << ConcreteState >> extends Estado {
-+start()
+class StateInProgress << ConcreteState >> implements State{
++start(item:ToDoItem)
 +tooglePause()
-+finish()
-+workedTime()
-+addComment()
++finish(item:ToDoItem)
++workedTime(item:ToDoItem):Duration
++addComment(item:ToDoItem,comment:String)
 }
 
-class EstadoFinished << ConcreteState >> extends Estado{
-+start()
+class StatePaused << ConcreteState >> implements State {
++start(item:ToDoItem)
 +tooglePause()
-+finish()
-+workedTime()
-+addComment()
++finish(item:ToDoItem)
++workedTime(item:ToDoItem):Duration
++addComment(item:ToDoItem,comment:String)
+}
+
+class StateFinished << ConcreteState >> implements State{
++start(item:ToDoItem)
++tooglePause()
++finish(item:ToDoItem)
++workedTime(item:ToDoItem):Duration
++addComment(item:ToDoItem,comment:String)
 }
 @enduml

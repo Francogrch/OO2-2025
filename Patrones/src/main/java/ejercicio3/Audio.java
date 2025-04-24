@@ -1,6 +1,8 @@
 package ejercicio3;
 
-public class Audio extends Media{
+public class Audio implements Media{
+
+
 
 	@Override
 	public void play() {}

@@ -15,6 +15,7 @@ class EmpleadoTest {
 		empPasan = new EmpleadoPasante(4);
 		empPlantCas = new EmpleadoPlanta(28,3,true);
 		empPlantNoCas = new EmpleadoPlanta(28,3,false);
+		// falta cantidad de hijos y cantidad de antiguedad
 	}
 	@Test
 	void pagarTest() {
