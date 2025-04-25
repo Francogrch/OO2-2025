@@ -1,0 +1,29 @@
+@startuml
+class Topografia <<Component>>{
++<<abstract>> getProporcion():Real
++igualdad(o:Object):boolean
++add(t:Topografia):Topografia
++remove(t:Topografia):Topografia
++getChild():List<Topografia>
+}
+class Mixta <<Composite>> {
++getProporcion():Real
++add(t:Topografia):Topografia
++remove(t:Topografia):Topografia
++getChild():List<Topografia>
++igualdad(o:Object):boolean
+}
+Mixta -> Topografia : -childs
+
+class Agua  <<Leaf>> extends Topografia{
++getProporcion():Real
+}
+
+class Tierra  <<Leaf>> extends Topografia{
++getProporcion():Real
+}
+class Pantano  <<Leaf>> extends Topografia{
++getProporcion():Real
+}
+Pantano -> Mixta : -mixta
+@enduml

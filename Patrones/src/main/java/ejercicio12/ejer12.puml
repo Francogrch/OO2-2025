@@ -1,0 +1,38 @@
+@startuml
+class FileSystem <<Client>>{
++tamanoTotalOcupado(): Integer
++archivoMasGrande(): Archivo
++archivoMasNuevo(): Archivo
++buscar(nombre): FSComponent
++buscarTodos(nombre): List<FSComponent>
++listadoDeContenido():String
+}
+FileSystem -> Carpeta : -raiz
+
+interface FSComponent <<Component>>{
++tamanoTotalOcupado(): Integer
++archivoMasGrande(): Archivo
++archivoMasNuevo(): Archivo
++buscar(nombre): FSComponent
++buscarTodos(nombre): List<FSComponent>
++listadoDeContenido():String
++listadoDeContenidoRecu(p:String):String
+}
+
+class Archivo <<Leaf>> implements FSComponent{
+-nombre:String
+-fechaCreacion:LocalDate
+-tamanio:Integer
+
+}
+
+class Carpeta <<Composite>> extends FSComponent{
+-nombre:String
+-fechaCreacion:LocalDate
++addChild(o:FSComponent)
++removeChild(o:FSComponent)
++getChild():List<FSComponent>
+}
+Carpeta -> Archivo : -childs 0..*
+
+@enduml
