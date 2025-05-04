@@ -1,17 +1,26 @@
-ejercicio 1: no falta nada - corregido - Adapter
-ejercicio 2: nada - corregido - TemplateMethod
-ejercicio 3: nada - corregido - Adapter
-ejercicio 4: nada - State
-ejercicio 5: falta test - Strategy
-ejercicio 6:
-ejercicio 7:
-ejercicio 8:
-ejercicio 9:
-ejercicio 10:
-ejercicio 11: falta test - Composite
-ejercicio 12: falta test - Composite
-ejercicio 13:
-ejercicio 14:
-ejercicio 15:
-ejercicio 16:
-ejercicio 17:
+| Ejercicio | UML | Código | Test | Corregido | Patrón           |
+|-----------|-----|--------|------|-----------|------------------|
+| 1         | ✔️  | ✔️     | ✔️   | ✔️        | Adapter          |
+| 2         | ✔️  | ✔️     | ✔️   | ✔️        | TemplateMethod   |
+| 3         | ✔️  | ✔️     | ✔️   | ✔️        | Adapter          |
+| 4         | ✔️  | ✔️     | ✔️   | ❌        | State            |
+| 5         | ✔️  | ✔️     | ❌   | ❌        | Strategy         |
+| 6         | ✔️  | ❌     | ❌   | ❌        | State            |
+| 7         | ✔️  | ❌     | ❌   | ❌        | State            |
+| 8         | ✔️  | ❌     | ❌   | ❌        | Strategy-Adapter |
+| 9         | ✔️  | ❌     | ❌   | ❌        | Strategy         |
+| 10        | ✔️  | ❌     | ❌   | ❌        | Strategy-Adapter |
+| 11        | ✔️  | ✔️     | ❌   | ❌        | Composite        |
+| 12        | ✔️  | ✔️     | ❌   | ❌        | Composite        |
+| 13        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 14        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 15        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 16        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 17        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 18        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 19        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 20        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 21        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 22        | ❌  | ❌     | ❌   | ❌        | ❌               |
+| 23        | ❌  | ❌     | ❌   | ❌        | ❌               |
+

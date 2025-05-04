@@ -1,0 +1,58 @@
+@startuml
+
+interface Connection <<Target>>{
+    +sendData(data: String, crc: Integer): String
+    +pict(): String
+}
+
+class WifiConn {
+    -pict: String
+    +sendData(data: String, crc: Integer): String
+    +pict(): String
+}
+
+
+
+class Dispositivo <<Client, Context>>{
+    +send(data: String): String
+    +setStrategy(s:EstrategiaCalculator)
+}
+
+class Ringer {
+    +ring(): void
+}
+
+class Display {
+    +showBanner(img: String): String
+}
+
+Connection <|.. WifiConn
+Dispositivo --> Connection : -connection
+
+Dispositivo --> Ringer : -ringer
+Dispositivo --> Display : -display
+
+class 4GConnection <<Adaptee>>{
+-symb:String
++transmit(data:String,crc:Integer):String
+}
+
+class Adapter4GConnection <<Adapter>> implements Connection{
+    +sendData(data: String, crc: Integer): String
+    +pict(): String
+}
+Adapter4GConnection --> 4GConnection : -adaptee
+
+interface EstrategiaCalculator <<Strategy>>{
++crcFor(data: String): Integer
+}
+class CRC32_Calculator  <<ConcreteStrategy>> implements EstrategiaCalculator{
++crcFor(data:String):Integer
+}
+class CRC16_Calculator <<ConcreteStrategy>> implements EstrategiaCalculator{
+    +crcFor(data: String): Integer
+}
+Dispositivo --> EstrategiaCalculator : -crcCalculator
+
+@enduml
+// Dispositivo es cliente y contexto a la vez, es lo mismo?

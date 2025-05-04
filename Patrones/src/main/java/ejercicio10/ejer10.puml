@@ -1,0 +1,40 @@
+@startuml
+class Mensajero <<Context>>{
++enviar(mensaje:String)
++recibir(mensaje:String)
++setCifrado(c:EstrategiaCifrado)
+}
+Mensajero --> EstrategiaCifrado : -cifrado
+
+interface EstrategiaCifrado <<Strategy>>{
++encrypt(message:String):String
++decript(mensajeCifrado:String):String
+}
+
+class AdapterFeister <<Adapter>> implements EstrategiaCifrado{
++<<create>> AdapterFeister(key:String)
++encrypt(message:String):String
++decript(mensajeCifrado:String):String
+}
+AdapterFeister --> FeisterCipher : -adaptee
+
+class FeisterCipher <<ConcreteStrategy,Adaptee>>{
+-key:String
++<<create>> FeisterCipher(key:String)
++encode(message:String):String
+}
+
+class AdapterRC4 <<Adapter>> implements EstrategiaCifrado{
+-key:String
++<<create>> AdapterRC4(key:String)
++encrypt(message:String):String
++decript(mensajeCifrado:String):String
+}
+AdapterRC4 --> RC4 : -adaptee
+
+class RC4 <<ConcreteStrategy,Adaptee>> {
++encrypt(message:String,key:String):String
++decript(mensajeCifrado:String,key:String):String
+}
+@enduml
+

@@ -1,0 +1,74 @@
+@startuml
+class Calculadora <<Context>> {
+  -valorAcumulado:Integer
+  +setValor(v:Integer)
+  +setState:(e:Estado)
+  +setResultado(r:String)
+  +mas()
+  +menos()
+  +por()
+  +dividido()
+  +borrar()
+  +resultado():String
+}
+Calculadora -> Estado : -state 
+interface Estado <<State>>{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+class EstadoInicial <<ConcreteState>> implements Estado{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+class EstadoError <<ConcreteState>> implements Estado{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+class EstadoSumar <<ConcreteState>> implements Estado{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+class EstadoRestar <<ConcreteState>> implements Estado{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+class EstadoMultiplicar <<ConcreteState>> implements Estado{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+class EstadoDividir implements Estado{
+  +setValor(context:Calculadora,v:Integer):String
+  +mas(context:Calculadora)
+  +menos(context:Calculadora)
+  +por(context:Calculadora)
+  +dividido(context:Calculadora)
+  +borrar(context:Calculadora)
+}
+
+@enduml
+// no es mejor tener tres estados:
+//Esperando, Operar, EstadoError

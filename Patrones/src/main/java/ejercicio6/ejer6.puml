@@ -1,0 +1,41 @@
+@startuml
+class Excursion <<Context>> {
+  -nombre:String
+  -fechaInicio:LocalDate
+  -fechaFin:LocalDate
+  -puntoEncuntro:String
+  -costo:Real
+  -cupoMin:Integer
+  -cupoMax:Integer
+  +obtenerInformacion():String
+  +setState(context:Excursion)
+  +inscribirUsuario(user:Usuario):boolean
+  +hayMinimo():boolean
+  +hayLugar():boolean
+  +estaLleno():boolean
+  +getMails():String
+  +getUsuariosFaltantes():Integer
+}
+Excursion -> Usuario : -inscriptos 0..*
+Excursion -> Usuario : -listaEspera 0..*
+Excursion -> EstadoExcursion: -state
+class Usuario{
+
+}
+
+interface EstadoExcursion <<state>>{
+  +obtenerInformacion():String
+}
+
+class EstadoIncompleta <<ConcreteState>> implements EstadoExcursion {
+  +obtenerInformacion():String
+}
+class EstadoConLugar <<ConcreteState>> implements EstadoExcursion {
+  +obtenerInformacion():String
+}
+class EstadoCompleta <<ConcreteState>> implements EstadoExcursion {
+  +obtenerInformacion():String
+}
+@enduml
+Considero que se utiliza state ya que el cambio de estado se realiza de manera logica, y no lo hace ningun cliente
+

@@ -1,0 +1,35 @@
+@startuml
+
+class Usuario {
+-nombre:String
+}
+Usuario --> AutoEnAlquiler : -autosEnAlquiler 0..*
+class AutoEnAlquiler {
+-precioPorDia: Real
+-cantidadPlazas: Integer
+-marca: String
+}
+Reserva --> Usuario : -conductor
+class Reserva <<Context>> {
+-cantidadDias: Integer
+-fecha: Date
++montoAPagar():Real
++montoAReembolsar():Real
++setPolitica(p:PoliticaCancelacion)
+}
+Reserva --> AutoEnAlquiler : -auto
+Reserva --> PoliticaCancelacion: -politica
+interface PoliticaCancelacion <<Strategy>>{
++montoAReembolsar(context:Reserva):Real
+}
+class PoliticaFlexible <<ConcreteStrategy>> implements PoliticaCancelacion {
++montoAReembolsar(context:Reserva):Real
+}
+class PoliticaModerada <<ConcreteStrategy>> implements PoliticaCancelacion {
++montoAReembolsar(context:Reserva):Real
+}
+class PoliticaEstricta <<ConcreteStrategy>> implements PoliticaCancelacion {
++montoAReembolsar(context:Reserva):Real
+}
+
+@enduml
