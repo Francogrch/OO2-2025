@@ -1,0 +1,39 @@
+@startuml
+
+class Catalogo {
++getComponente(descripcion:String):Componente
+}
+Catalogo --> Componente: -componentes 0..*
+
+
+class Producto <<abstract, Component>> {
++getComsumo():Real
++getPrecio():Real
++add()
++getChilds():List<Producto>
+
+}
+
+class Componente <<Leaf>> extends Producto {
+-nombre:String
+-descripcion:String
+-precio:Real
+-consumo:Real
++getComsumo():Real
++getPrecio():Real
++add()
++getChilds():List<Producto>
+}
+
+class Productos <<Composite>> extends Producto {
++getPrecio()
++add()
++getChilds():List<Producto>
++getComsumo():Real
++getPrecio():Real
+}
+Productos --> Producto : -childs 0..*
+
+@enduml
+
+// Hay que usar un builder?

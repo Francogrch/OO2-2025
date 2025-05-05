@@ -1,0 +1,23 @@
+@startuml
+class Componente <<abstract,Component>>{
+-precio:Real
++getPrecio():Real
++add(c:Component)
++remove(c:Component)
++getChild():List<Componente>
+}
+
+class Sanguche <<Composite>> extends Componente{
++getPrecio():Real
++add(c:Component)
++remove(c:Component)
++getChild():List<Componente>
+
+}
+Sanguche --> Componente : -childs 0..*
+
+class Producto <<Leaf>> extends Componente{
++getPrecio():Real
++add(c:Component)
+}
+@enduml

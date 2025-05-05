@@ -1,0 +1,44 @@
+@startuml
+class Bien <<abstract,Component>>{
++getValor():Real
++getLiquidez():Real
++getValorPrendario():Real
++add(b:Bien)
+}
+class Automovil  <<Leaf>> extends Bien{
+-modelo:String
+-km:Integer
+-costo:Real
++getValor():Real
++getLiquidez():Real
++getValorPrendario():Real
++add(b:Bien)
+}
+class Inmueble  <<Leaf>> extends Bien{
+-direccion:String
+-superficie:Integer
+-costo:Real
++getValor():Real
++getLiquidez():Real
++getValorPrendario():Real
++add(b:Bien)
+}
+class Alquileres  <<Leaf>> extends Bien{
+-comienzo:LocalDate
+-fin:LocalDate
+-costo:Real
++getValor():Real
++getLiquidez():Real
++getValorPrendario():Real
++add(b:Bien)
+}
+
+class PrendaCombinada <<Composite>> extends Bien{
++getValor():Real
++getLiquidez():Real
++getValorPrendario():Real
++add(b:Bien)
+}
+PrendaCombinada --> Bien: -childs 0..*
+
+@enduml
