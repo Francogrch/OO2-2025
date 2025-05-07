@@ -12,9 +12,9 @@
 | 10        | ✔️  | ❌     | ❌   | ❌        | Strategy-Adapter |
 | 11        | ✔️  | ✔️     | ❌   | ❌        | Composite        |
 | 12        | ✔️  | ✔️     | ❌   | ❌        | Composite        |
-| 13        | ✔️  | ❌     | ❌   | ❌        | Composite        |
+| 13        | ✔️  | ❌     | ❌   | ❌        | Builder          |
 | 14        | ✔️  | ❌     | ❌   | ❌        | Composite        |
-| 15        | ❌  | ❌     | ❌   | ❌        | Composite-Builder?|
+| 15        | ✔️  | ❌     | ❌   | ❌        | Builder          |
 | 16        | ❌  | ❌     | ❌   | ❌        | ❌               |
 | 17        | ❌  | ❌     | ❌   | ❌        | ❌               |
 | 18        | ❌  | ❌     | ❌   | ❌        | ❌               |

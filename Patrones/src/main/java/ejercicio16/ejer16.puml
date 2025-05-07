@@ -1,0 +1,42 @@
+@startuml
+
+class PNGFilterLauncher {
+    +main(args: String[]) : void
+    +processArgs(args: String[]) : void
+    +initializeFilters() : void
+}
+PNGFilterLauncher --> Filter : -filters
+PNGFilterLauncher --> Filter : -activeFilters
+PNGFilterLauncher --> File : -inputFile
+PNGFilterLauncher --> File : -outputFile
+
+
+abstract class Filter {
+  +<<abstract>> filter(image: BufferedImage) : BufferedImage
+}
+
+class Rainbow extends Filter {
+  +filter(image: BufferedImage) : BufferedImage
+}
+
+class Artifacter extends Filter {
+  +filter(image: BufferedImage) : BufferedImage
+}
+
+class RGBShifter extends Filter {
+  +filter(image: BufferedImage) : BufferedImage
+}
+
+class Repeater extends Filter {
+  +filter(image: BufferedImage) : BufferedImage
+}
+
+class RGBShiftRepeater extends Filter {
+  +filter(image: BufferedImage) : BufferedImage
+}
+
+class Dull extends Filter {
+  +filter(image: BufferedImage) : BufferedImage
+}
+
+@enduml

@@ -1,23 +1,38 @@
 @startuml
-class Componente <<abstract,Component>>{
+
+class Componente <<Component>>{
 -precio:Real
 +getPrecio():Real
-+add(c:Component)
-+remove(c:Component)
-+getChild():List<Componente>
+}
+class Sanguche {
++setPan(c:Componente)
++setPrincipal(c:Componente)
++setAderezo(c:Componente)
++setAdicional(c:Componente)
+}
+Sanguche --> Componente : -pan
+Sanguche --> Componente : -principal
+Sanguche --> Componente : -aderezo
+Sanguche --> Componente : -adicional
+
+class Cocinero <<Director>>{
++crearSanguche(b:BuilderSanguche):Sanguche
 }
 
-class Sanguche <<Composite>> extends Componente{
-+getPrecio():Real
-+add(c:Component)
-+remove(c:Component)
-+getChild():List<Componente>
-
+class BuilderSanguche <<Builder>> {
++<<abstract>>componentePan()
++<<abstract>>componentePrincipal()
++<<abstract>>componenteAderezo()
++<<abstract>>componenteAdicional()
++reset()
++getSanguche():Sanguche
 }
-Sanguche --> Componente : -childs 0..*
+BuilderSanguche --> Sanguche : -sanguche
 
-class Producto <<Leaf>> extends Componente{
-+getPrecio():Real
-+add(c:Component)
-}
+class BuilderClasico <<ConcreteBuilder>> extends BuilderSanguche{}
+class BuilderVegatariano <<ConcreteBuilder>> extends BuilderSanguche {}
+class BuilderVegano <<ConcreteBuilder>> extends BuilderSanguche {}
+class BuilderSinTACC <<ConcreteBuilder>> extends BuilderSanguche {}
+
 @enduml
+

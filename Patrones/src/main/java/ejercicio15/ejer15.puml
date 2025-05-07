@@ -5,16 +5,7 @@ class Catalogo {
 }
 Catalogo --> Componente: -componentes 0..*
 
-
-class Producto <<abstract, Component>> {
-+getComsumo():Real
-+getPrecio():Real
-+add()
-+getChilds():List<Producto>
-
-}
-
-class Componente <<Leaf>> extends Producto {
+class Componente {
 -nombre:String
 -descripcion:String
 -precio:Real
@@ -25,15 +16,51 @@ class Componente <<Leaf>> extends Producto {
 +getChilds():List<Producto>
 }
 
-class Productos <<Composite>> extends Producto {
-+getPrecio()
-+add()
-+getChilds():List<Producto>
-+getComsumo():Real
+class PC <<Product>>{
++setProce(c:Componente)
++setRAM(c:Componente)
++setDisco(c:Componente)
++setGrafica(c:Componente)
++setGabinete(c:Componente)
++getConsumo():Real
 +getPrecio():Real
 }
-Productos --> Producto : -childs 0..*
+PC --> Componente : -procesador
+PC --> Componente : -ram
+PC --> Componente : -disco
+PC --> Componente : -grafica
+PC --> Componente : -gabinete
+
+class Presupuesto{
+-nombre:String
+-fecha:LocalDate
+-pc:PC
++getPrecio():Real
+}
+
+class Negocio <<Director>>{
++crearPC()
++setBuilder(b:BuilderPC)
++crearPresupuesto(nombre:String,pc:PC):Presupuesto
+}
+Negocio --> BuilderPC : -builder
+Negocio --> Catalogo : -catalogo
+class BuilderPC <<Builder>>{
++reset()
++<<abstract>> setProce(c:Catalogo)
++<<abstract>> setRAM(c:Catalogo)
++<<abstract>> setDisco(c:Catalogo)
++<<abstract>> setGrafica(c:Catalogo)
++<<abstract>> setGabinete(c:Catalogo)
++getPC():PC
+}
+BuilderPC -> PC : -pc
+
+class BuilderBasico <<ConcreteBuilder>> extends BuilderPC{
+}
+class BuilderIntermedio <<ConcreteBuilder>> extends BuilderPC{
+}
+class BuilderGamer <<ConcreteBuilder>> extends BuilderPC{
+}
 
 @enduml
-
-// Hay que usar un builder?
